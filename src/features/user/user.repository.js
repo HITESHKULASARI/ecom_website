@@ -18,14 +18,14 @@ export default class UserRepository{
         }
     }
 
-    async signIn(email,password){
+    async signIn(email){
         try{
             //1.get the database
             const db = getDB();
             //2.get the collection
             const collection = db.collection("users");
             //3.find the document
-            return await collection.findOne({email,password});
+            return await collection.findOne({email});
 
 
         }catch(err){

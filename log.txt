@@ -50,3 +50,8 @@
  Fri Oct 27 2023 12:54:18 GMT+0530 (India Standard Time) - /api/users/signup - {"name":"hitesh2","email":"hiteshkulasari2@gmail.com","password":"1234567890","type":"clothing"}
  Fri Oct 27 2023 12:55:00 GMT+0530 (India Standard Time) - /api/users/signup - {"name":"hitesh2","email":"hiteshkulasari2@gmail.com","password":"1234567890","type":"clothing"}
  Fri Oct 27 2023 13:48:17 GMT+0530 (India Standard Time) - /api/users/signup - {"name":"hitesh3","email":"hiteshkulasari3@gmail.com","password":"1234567890","type":"clothing"}
+ Fri Oct 27 2023 18:02:41 GMT+0530 (India Standard Time) - /api/users/signup - {"name":"hitesh4","email":"hiteshkulasari4@gmail.com","password":"1234567890","type":"clothing"}
+ Fri Oct 27 2023 18:03:33 GMT+0530 (India Standard Time) - /api/users/signup - {"name":"hitesh4","email":"hiteshkulasari4@gmail.com","password":"1234567890","type":"clothing"}
+ Fri Oct 27 2023 18:06:46 GMT+0530 (India Standard Time) - /api/users/signup - {"name":"hitesh4","email":"hiteshkulasari4@gmail.com","password":"1234567890","type":"clothing"}
+ Fri Oct 27 2023 18:06:57 GMT+0530 (India Standard Time) - /api/users/signup - {"name":"hitesh5","email":"hiteshkulasari5@gmail.com","password":"1234567890","type":"clothing"}
+ Fri Oct 27 2023 18:08:11 GMT+0530 (India Standard Time) - /api/users/signup - {"name":"hitesh6","email":"hiteshkulasari6@gmail.com","password":"1234567890","type":"clothing"}

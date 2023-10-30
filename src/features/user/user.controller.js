@@ -58,8 +58,8 @@ export default class UserController {
               // 1. Create token.
                   const token = jwt.sign(
                   {
-                    userID: result.id,
-                    email: result.email,
+                    userID: user._id,
+                    email: user.email,
                   },
                   process.env.JWT_SECRET ,
                   {

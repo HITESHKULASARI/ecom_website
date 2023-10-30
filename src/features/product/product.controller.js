@@ -21,13 +21,13 @@ export default class ProductController {
     res.status(201).send(createdRecord);
   }
 
-  rateProduct(req, res, next) {
+  async rateProduct(req, res, next) {
     console.log(req.query);
     try{
-      const userID = req.query.userID;
+      const userID = req.userID;
       const productID = req.query.productID;
-      const rating = req.querys.rating;
-      ProductModel.rateProduct(
+      const rating = req.query.rating;
+      await this.ProductRepository.rateProduct(
         userID,
         productID, 
         rating

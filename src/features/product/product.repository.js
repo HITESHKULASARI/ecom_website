@@ -70,4 +70,24 @@ export default class ProductRepository{
             throw new ApplicationError("something went wrong while filtering",500);
         }
     }
+
+    async rateProduct(userID,productID,rating){
+
+        try{
+            //get the database
+            const db = getDB();
+            //get the collection
+            const collection = db.collection('products');
+            
+            await collection.updateOne({_id:new ObjectId(productID)},{
+                $push:{ratings:{userID:new ObjectId(userID),rating}}
+            })
+
+
+        }catch(err){
+
+            throw new ApplicationError(err,500);
+        }
+
+    }
 }

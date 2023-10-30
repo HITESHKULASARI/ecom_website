@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import ApplicationError from "../../error-handler/applicationError.js";
 import UserRepository from './user.repository.js';
+import config from '../../../env.js'
 
 
 export default class UserController {
@@ -50,7 +51,8 @@ export default class UserController {
               .send('Incorrect Credentials');
           }else{
             //compare password with hash password
-            const result = bcrypt.compare(req.body.password,user.password);
+            console.log(typeof(req.body.password),typeof(user.password));
+            const result = await bcrypt.compare(req.body.password,user.password);
 
             if(result){
               // 1. Create token.
@@ -59,7 +61,7 @@ export default class UserController {
                     userID: result.id,
                     email: result.email,
                   },
-                  'AIb6d35fvJM4O9pXqXQNla2jBCH9kuLz',
+                  process.env.JWT_SECRET ,
                   {
                     expiresIn: '1h',
                   }

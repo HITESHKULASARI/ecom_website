@@ -2,15 +2,16 @@ import UserModel from '../user/user.model.js';
 import  ApplicationError  from '../../error-handler/applicationError.js';
 export default class ProductModel {
   constructor(
-    id,
+    
     name,
-    desc,
     price,
+    sizes,
     imageUrl,
+    desc,
     category,
-    sizes
+    id
   ) {
-    this.id = id;
+    this._id = id;
     this.name = name;
     this.desc = desc;
     this.imageUrl = imageUrl;
@@ -20,7 +21,7 @@ export default class ProductModel {
   }
 
   static add(product) {
-    product.id = products.length + 1;
+    product._id = products.length + 1;
     products.push(product);
     return product;
   }

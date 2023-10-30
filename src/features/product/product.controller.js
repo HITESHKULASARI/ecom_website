@@ -1,22 +1,23 @@
 import ProductModel from './product.model.js';
+import ProductRepository from './product.repository.js';
 
 export default class ProductController {
-  getAllProducts(req, res) {
-    const products = ProductModel.getAll();
+  
+  constructor(){
+    this.ProductRepository = new ProductRepository();
+  }
+  //working
+  async getAllProducts(req, res) {
+    const products = await this.ProductRepository.getAll();
+    console.log(products);
+    
     res.status(200).send(products);
   }
-
-  addProduct(req, res) {
+  // done
+  async addProduct(req, res) {
     const { name, price, sizes } = req.body;
-    const newProduct = {
-      name,
-      price: parseFloat(price),
-      sizes: sizes.split(','),
-      imageUrl: req.file.filename,
-    };
-    const createdRecord = ProductModel.add(
-      newProduct
-    );
+    const newProduct = new ProductModel(name,parseFloat(price),sizes.split(','),req.file.filename);
+    const createdRecord = await this.ProductRepository.add(newProduct);
     res.status(201).send(createdRecord);
   }
 
@@ -42,9 +43,9 @@ export default class ProductController {
     }
    
 
-  getOneProduct(req, res) {
+  async getOneProduct(req, res) {
     const id = req.params.id;
-    const product = ProductModel.get(id);
+    const product = await this.ProductRepository.get(id);
     if (!product) {
       res.status(404).send('Product not found');
     } else {
@@ -52,15 +53,21 @@ export default class ProductController {
     }
   }
 
-  filterProducts(req, res) {
-    const minPrice = req.query.minPrice;
-    const maxPrice = req.query.maxPrice;
-    const category = req.query.category;
-    const result = ProductModel.filter(
-      minPrice,
-      maxPrice,
-      category
-    );
-    res.status(200).send(result);
+  async filterProducts(req, res) {
+    try{
+        const minPrice = req.query.minPrice;
+        const maxPrice = req.query.maxPrice;
+        const category = req.query.category;
+        const result = await this.ProductRepository.filter(
+          minPrice,
+          maxPrice,
+          category
+        );
+        res.status(200).send(result);
+
+    }catch(err){
+       throw new ApplicationError(err,500);
+    }
+    
   }
 }

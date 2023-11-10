@@ -11,6 +11,7 @@ export const connectToMongoDB = () =>{
       
         client = clientInstance;
         console.log('Mongodb is connected');
+        createIndex(client.db());
      })
      .catch((err)=>{
         console.log(err);
@@ -23,3 +24,13 @@ export const getDB = ()=>{
 
 
 
+const createIndex = async(db)=>{
+    try{
+      await db.collection("products").createIndex({price:1});
+    }catch(err){
+      console.log(err);
+    }
+
+    console.log("indexes are created");
+    
+}

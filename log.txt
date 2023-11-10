@@ -94,3 +94,24 @@
  Mon Oct 30 2023 12:54:06 GMT+0530 (India Standard Time) - /api/products/rate?productID=653f324a05ab8a705e1828c7&rating=4 - {}
  Mon Oct 30 2023 12:58:26 GMT+0530 (India Standard Time) - /api/products/rate?productID=653f324a05ab8a705e1828c7&rating=4 - {}
  Mon Oct 30 2023 12:59:24 GMT+0530 (India Standard Time) - /api/products/rate?productID=653f324a05ab8a705e1828c7&rating=4 - {}
+ Sat Nov 04 2023 12:01:07 GMT+0530 (India Standard Time) - /api/products/rate - {}
+ Sat Nov 04 2023 12:03:20 GMT+0530 (India Standard Time) - /api/products/rate - {"rating":3,"productID":"653f220ae912f67d61db9669"}
+ Sat Nov 04 2023 12:03:38 GMT+0530 (India Standard Time) - /api/products/rate - {"rating":7,"productID":"653f220ae912f67d61db9669"}
+ Sat Nov 04 2023 16:11:00 GMT+0530 (India Standard Time) - /api/cartItems - {"productID":"653f220ae912f67d61db9669","quantity":4}
+ Sat Nov 04 2023 16:15:23 GMT+0530 (India Standard Time) - /api/cartItems - {}
+ Sat Nov 04 2023 16:15:55 GMT+0530 (India Standard Time) - /api/cartItems - {}
+ Sat Nov 04 2023 16:46:32 GMT+0530 (India Standard Time) - /api/cartItems - {}
+ Sat Nov 04 2023 16:56:55 GMT+0530 (India Standard Time) - /api/cartItems - {"productID":"653f220ae912f67d61db9669","quantity":4}
+ Sat Nov 04 2023 16:57:45 GMT+0530 (India Standard Time) - /api/cartItems - {}
+ Sat Nov 04 2023 19:44:39 GMT+0530 (India Standard Time) - /api/cartItems?id=65462a7f2da777554aa69d56 - {}
+ Sat Nov 04 2023 19:45:38 GMT+0530 (India Standard Time) - /api/cartItems?id=65462a7f2da777554aa69d56 - {}
+ Sat Nov 04 2023 19:46:43 GMT+0530 (India Standard Time) - /api/cartItems?id=65462a7f2da777554aa69d56 - {}
+ Sat Nov 04 2023 19:50:45 GMT+0530 (India Standard Time) - /api/cartItems/65462a7f2da777554aa69d56 - {}
+ Thu Nov 09 2023 15:02:06 GMT+0530 (India Standard Time) - /api/cartItems - {"productID":"653f220ae912f67d61db9669","quantity":5}
+ Thu Nov 09 2023 15:02:28 GMT+0530 (India Standard Time) - /api/cartItems - {"productID":"653f220ae912f67d61db9669","quantity":3}
+ Fri Nov 10 2023 11:03:50 GMT+0530 (India Standard Time) - /api/products/averagePrice - {}
+ Fri Nov 10 2023 11:04:19 GMT+0530 (India Standard Time) - /api/products/averagePrice - {}
+ Fri Nov 10 2023 11:05:29 GMT+0530 (India Standard Time) - /api/products/averagePrice - {}
+ Fri Nov 10 2023 11:06:15 GMT+0530 (India Standard Time) - /api/products/averagePrice - {}
+ Fri Nov 10 2023 11:07:40 GMT+0530 (India Standard Time) - /api/products/averagePrice - {}
+ Fri Nov 10 2023 11:09:50 GMT+0530 (India Standard Time) - /api/products/averagePrice - {}

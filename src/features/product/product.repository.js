@@ -79,6 +79,14 @@ export default class ProductRepository{
             //get the collection
             const collection = db.collection('products');
             
+            //for deleting the existing product for this we will use "pull operation"
+            //this will remove existing rating
+            await collection.updateOne({_id:new ObjectId(productID)},{
+                $pull:{ratings:{userID:new ObjectId(userID)}}
+            })
+
+
+            //for updating the product or add new rating to the same product
             await collection.updateOne({_id:new ObjectId(productID)},{
                 $push:{ratings:{userID:new ObjectId(userID),rating}}
             })
@@ -89,5 +97,27 @@ export default class ProductRepository{
             throw new ApplicationError(err,500);
         }
 
+    }
+    async getAveragePrice(){
+        try{
+            //get the db
+            const db = getDB();
+            //collection 
+            const collection = db.collection('products');
+
+            return await collection.aggregate([
+                 {
+                    $group : {
+                        _id:"$name",
+                        averagePrice:{$avg:"$price"}
+
+                }
+                 }
+            ]).toArray();
+
+        }catch(err){
+             
+            throw new ApplicationError(err,500);
+        }
     }
 }

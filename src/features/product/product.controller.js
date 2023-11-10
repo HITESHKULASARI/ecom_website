@@ -1,12 +1,13 @@
 import ProductModel from './product.model.js';
 import ProductRepository from './product.repository.js';
+import ApplicationError from '../../error-handler/applicationError.js';
 
 export default class ProductController {
   
   constructor(){
     this.ProductRepository = new ProductRepository();
   }
-  //working
+  //done
   async getAllProducts(req, res) {
     const products = await this.ProductRepository.getAll();
     console.log(products);
@@ -25,8 +26,8 @@ export default class ProductController {
     console.log(req.query);
     try{
       const userID = req.userID;
-      const productID = req.query.productID;
-      const rating = req.query.rating;
+      const productID = req.body.productID;
+      const rating = req.body.rating;
       await this.ProductRepository.rateProduct(
         userID,
         productID, 
@@ -69,5 +70,18 @@ export default class ProductController {
        throw new ApplicationError(err,500);
     }
     
+  }
+
+  async getAveragePrice(req,res){
+
+    try{
+
+      const result = await this.ProductRepository.getAveragePrice();
+      res.status(200).send(result);
+
+    }catch(err){
+       throw new ApplicationError(err,500);
+    }
+
   }
 }

@@ -15,8 +15,7 @@ export default class CartItemModel{
             userID, 
             quantity
             );
-            cartItem.id = cartItems.length + 1;
-            cartItems.push(cartItem);
+           
             return cartItem;
     }
 

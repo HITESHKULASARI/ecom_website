@@ -22,6 +22,9 @@ export const getDB = ()=>{
     return client.db();
 }
 
+export const getClient = ()=>{
+    return client;
+}
 
 
 const createIndex = async(db)=>{

@@ -11,6 +11,20 @@ export default class UserController {
   constructor(){
     this.userRepository = new UserRepository();
   }
+
+  async resetPassword(req,res,next){
+    const userID = req.userID;
+    const newPassword = req.body.newPassword;
+    const hashPassword = await bcrypt.hash(password,12);
+    try{
+      await this.userRepository.resetPassword(userID, hashedPassword)
+      res.status(200).send("Password is updated");
+     }catch(err){
+      console.log(err);
+      console.log("passing the error to the middleware");
+      next(err);
+     }
+  }
   
   async signUp(req, res) {
     const {
@@ -42,7 +56,7 @@ export default class UserController {
 
   async signIn(req, res) {
     try{
-          const user = await this.userRepository.signIn(
+          const user = await this.userRepository.findByEmail(
             req.body.email
           );
           if(!user){

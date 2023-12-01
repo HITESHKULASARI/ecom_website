@@ -1,36 +1,57 @@
-
+import mongoose from "mongoose";
+import { userSchema } from "./user.schema.js";
 import ApplicationError from "../../error-handler/applicationError.js";
-import { getDB } from "../../config/mongodb.js";
+
+
+
+const UserModel = mongoose.model('User',userSchema);
+
+
 export default class UserRepository{
-    
-    async signUp(newUser){
-        
+
+      async signUp(user){
+
+           try{
+             
+            //creating the instance
+            const newUser = new UserModel(user);
+
+            await newUser.save();
+
+            return newUser;
+            
+
+
+
+           }catch(err){
+              console.log(err);
+              throw new ApplicationError("Something went wrong",500);
+           }
+
+      }
+
+      async signIn(email,password){
+            
         try{
-             //1.get the database
-            const db = getDB();
-            //2.get the collection
-            const collection = db.collection("users");
-            //3.insert the document
-            await collection.insertOne(newUser);
-
-        }catch(err){
-            throw new ApplicationError(err,400);
-        }
-    }
-
-    async signIn(email){
-        try{
-            //1.get the database
-            const db = getDB();
-            //2.get the collection
-            const collection = db.collection("users");
-            //3.find the document
-            return await collection.findOne({email});
+             
+            return await UserModel.findOne({email,password});
+            
 
 
-        }catch(err){
-            throw new ApplicationError(err,400);
-        }
-    }
 
+           }catch(err){
+              console.log(err);
+              throw new ApplicationError("Something went wrong",500);
+           }
+
+      }
+
+      async findByEmail(email) {
+            try{
+                return await UserModel.findOne({email});
+            }catch(err){
+                console.log(err);
+                throw new ApplicationError("Something went wrong with database", 500);
+            }
+      }
 }
